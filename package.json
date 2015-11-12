@@ -11,7 +11,7 @@
       "git-tools:gitk"
     ]
   },
-  "repository": "https://github.com/atom/git-gui",
+  "repository": "https://github.com/ankalus/git-tools.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
