@@ -1,5 +1,7 @@
-# git-gui package
+# Git Tools
 
-A short description of your package.
+Simple tool to open Git Gui and Gitk in Atom.
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+It runs on Linux and can run on OS X.
+
+Requires you to install [git-gui](https://git-scm.com/docs/git-gui) and [gitk](https://git-scm.com/docs/gitk).

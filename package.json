@@ -1,12 +1,15 @@
 {
-  "name": "git-gui",
-  "main": "./lib/git-gui",
+  "name": "git-tools",
+  "main": "./lib/git-tools",
   "version": "0.0.1",
-  "description": "Opens Git Gui",
+  "description": "Opens Git Gui and gitk",
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "git-gui:open"
+    "atom-workspace": [
+      "git-tools:git-gui",
+      "git-tools:gitk"
+    ]
   },
   "repository": "https://github.com/atom/git-gui",
   "license": "MIT",
