@@ -14,10 +14,7 @@ module.exports = GitGui =
     atom.commands.add 'atom-workspace', 'git-tools:gitk': => @git_k()
 
   dir: ->
-    editor = atom.workspace.getActivePaneItem()
-    file = editor?.buffer.file
-    filePath = file?.path
-    path.dirname filePath
+    atom.project.getPaths()[0]
 
   git_k: ->
     exec 'cd ' + @dir() + ' && gitk'
