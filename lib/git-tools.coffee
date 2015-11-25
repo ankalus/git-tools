@@ -2,7 +2,7 @@
 {exec} = require 'child_process'
 path = require 'path'
 
-module.exports = GitGui =
+module.exports = GitTools =
   subscriptions: null
 
   activate: (state) ->
@@ -14,7 +14,13 @@ module.exports = GitGui =
     atom.commands.add 'atom-workspace', 'git-tools:gitk': => @git_k()
 
   dir: ->
-    atom.project.getPaths()[0]
+    editor = atom.workspace.getActivePaneItem()
+    if editor.buffer == undefined
+      ""
+    else
+      file = editor?.buffer.file
+      filePath = file?.path
+      path.dirname filePath
 
   git_k: ->
     exec 'cd ' + @dir() + ' && gitk'
