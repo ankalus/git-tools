@@ -15,12 +15,11 @@ module.exports = GitTools =
 
   dir: ->
     editor = atom.workspace.getActivePaneItem()
-    if editor.buffer == undefined
+    if editor == undefined
       ""
     else
-      file = editor?.buffer.file
-      filePath = file?.path
-      path.dirname filePath
+      directoryPath = editor?.getDirectoryPath()
+      path.dirname directoryPath
 
   git_k: ->
     exec 'cd ' + @dir() + ' && gitk'
