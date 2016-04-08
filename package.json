@@ -1,10 +1,9 @@
 {
   "name": "git-tools",
   "main": "./lib/git-tools",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Opens Git Gui and gitk",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": [
       "git-tools:git-gui",
@@ -16,6 +15,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
