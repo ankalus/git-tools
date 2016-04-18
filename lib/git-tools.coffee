@@ -19,7 +19,6 @@ module.exports = GitTools =
       ""
     else
       directoryPath = editor?.getDirectoryPath()
-      path.dirname directoryPath
 
   git_k: ->
     exec 'cd ' + @dir() + ' && gitk'
