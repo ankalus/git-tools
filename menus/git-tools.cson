@@ -9,6 +9,10 @@
     {
       'label': 'Gitk'
       'command': 'git-tools:gitk'
+    },
+    {
+      'label': 'Gitk Current File'
+      'command': 'git-tools:gitk-current-file'
     }
   ]
 'menu': [
@@ -24,6 +28,10 @@
         {
           'label': 'Gitk'
           'command': 'git-tools:gitk'
+        },
+        {
+          'label': 'Gitk Current File'
+          'command': 'git-tools:gitk-current-file'
         }
       ]
     ]
