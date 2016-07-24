@@ -3,7 +3,11 @@
   "main": "./lib/git-tools",
   "version": "0.2.0",
   "description": "Opens Git Gui and gitk",
-  "keywords": [],
+  "keywords": [
+    "git",
+    "gitk",
+    "git-gui"
+  ],
   "activationCommands": {
     "atom-workspace": [
       "git-tools:git-gui",

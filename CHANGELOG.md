@@ -1,4 +1,6 @@
-## 0.2.0 - First Release
+## 0.2.1 - Update keywords
+
+## 0.2.0 - New feature
 
 *   Added: "Gitk Current File"
 
