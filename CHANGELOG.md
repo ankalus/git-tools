@@ -1,3 +1,7 @@
+## 0.3.0 - New feature
+
+*   Added: notice about error when no file opened
+
 ## 0.2.1 - Update keywords
 
 ## 0.2.0 - New feature

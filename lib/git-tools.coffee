@@ -1,6 +1,5 @@
 {CompositeDisposable} = require 'atom'
 {exec} = require 'child_process'
-path = require 'path'
 
 module.exports = GitTools =
   subscriptions: null
@@ -21,7 +20,7 @@ module.exports = GitTools =
   dir: ->
     editor = atom.workspace.getActivePaneItem()
     if editor == undefined
-      ""
+      undefined
     else
       directoryPath = editor?.getDirectoryPath()
 
@@ -29,14 +28,28 @@ module.exports = GitTools =
     editor = atom.workspace.getActivePaneItem()
     editor?.buffer.file?.path
 
+  isUndefined: (dir, title) ->
+    if dir == undefined
+      atom.notifications.addError(
+        title ,
+        { detail: "Not found!\nOpen file in project." }
+      )
+      true
+    else
+      false
+
+  # commands
   git_k: ->
-    exec 'cd ' + @dir() + ' && gitk'
-    # console.log 'Gitk was opend!'
+    dir = @dir()
+    return if @isUndefined(dir, "Gitk")
+    exec 'cd ' + dir + ' && gitk'
 
   git_k_cf: ->
-    exec 'cd ' + @dir() + ' && gitk ' + @file()
-    # console.log 'Gitk was opend!'
+    file = @file()
+    return if @isUndefined(file, "Gitk Current File")
+    exec 'cd ' + @dir() + ' && gitk ' + file
 
   git_gui: ->
-    exec 'cd ' + @dir() + ' && git gui'
-    # console.log 'Git Gui was opend!'
+    dir = @dir()
+    return if @isUndefined(dir, "Git Gui")
+    exec 'cd ' + dir + ' && git gui'
