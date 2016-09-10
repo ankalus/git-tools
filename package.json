@@ -11,6 +11,7 @@
   "activationCommands": {
     "atom-workspace": [
       "git-tools:git-gui",
+      "git-tools:git-gui-blame",
       "git-tools:gitk",
       "git-tools:gitk-current-file"
     ]
@@ -20,5 +21,15 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+
+  "configSchema": {
+    "blameCursorNotification": {
+      "title": "Show notification of used line if multiple cursors are present",
+      "description": "This will display a notification of the used line for the \"Git Gui Blame\"-command.",
+      "type": "boolean",
+      "default": true,
+      "order": 1
+    }
+  }
 }
