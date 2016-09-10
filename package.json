@@ -11,6 +11,7 @@
   "activationCommands": {
     "atom-workspace": [
       "git-tools:git-gui",
+      "git-tools:git-gui-blame",
       "git-tools:gitk",
       "git-tools:gitk-current-file"
     ]

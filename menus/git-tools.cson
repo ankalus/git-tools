@@ -7,6 +7,10 @@
       'command': 'git-tools:git-gui'
     },
     {
+     'label': 'Git Gui Blame'
+     'command': 'git-tools:git-gui-blame'
+    },
+    {
       'label': 'Gitk'
       'command': 'git-tools:gitk'
     },
@@ -24,6 +28,10 @@
         {
           'label': 'Git Gui'
           'command': 'git-tools:git-gui'
+        },
+        {
+          'label': 'Git Gui Blame'
+          'command': 'git-tools:git-gui-blame'
         },
         {
           'label': 'Gitk'

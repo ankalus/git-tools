@@ -10,6 +10,8 @@ module.exports = GitTools =
     @subscriptions.add
     atom.commands.add 'atom-workspace', 'git-tools:git-gui': => @git_gui()
     @subscriptions.add
+    atom.commands.add 'atom-workspace', 'git-tools:git-gui-blame': => @git_gui_blame()
+    @subscriptions.add
     atom.commands.add 'atom-workspace', 'git-tools:gitk': => @git_k()
     @subscriptions.add
     atom.commands.add(
@@ -26,7 +28,18 @@ module.exports = GitTools =
 
   file: ->
     editor = atom.workspace.getActivePaneItem()
-    editor?.buffer.file?.path
+    if editor == undefined
+      undefined
+    else
+      editor?.buffer.file?.path
+
+  line: ->
+    editor = atom.workspace.getActiveTextEditor()
+    if editor == undefined
+      undefined
+    else
+      editor?.getCursorScreenPosition().row + 1
+
 
   isUndefined: (dir, title) ->
     if dir == undefined
@@ -53,3 +66,13 @@ module.exports = GitTools =
     dir = @dir()
     return if @isUndefined(dir, "Git Gui")
     exec 'cd ' + dir + ' && git gui'
+
+  git_gui_blame: ->
+    dir = @dir()
+    file = @file()
+    line = @line()
+
+    return if @isUndefined(file, "Git Gui Blame")
+    return if @isUndefined(line, "Git Gui Blame")
+
+    exec 'cd ' + dir + ' && git gui blame --line=' + line + ' ' + '""' + file + '""'
