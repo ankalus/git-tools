@@ -1,7 +1,7 @@
 {
   "name": "git-tools",
   "main": "./lib/git-tools",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Opens Git Gui and gitk",
   "keywords": [
     "git",
@@ -22,7 +22,6 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {},
-
   "configSchema": {
     "blameCursorNotification": {
       "title": "Show notification of used line if multiple cursors are present",
