@@ -1,3 +1,7 @@
+## 0.4.0 - New feature
+
+*   Added: "Git Gui Blame"
+
 ## 0.3.0 - New feature
 
 *   Added: notice about error when no file opened
