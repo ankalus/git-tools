@@ -19,6 +19,12 @@ module.exports = GitTools =
       'git-tools:gitk-current-file': => @git_k_cf()
     )
 
+    # Subscribe to the event when the multiple cursor notification config is modified
+    @subscriptions.add atom.config.onDidChange 'git-tools.blameCursorNotification', =>
+      @blameCursorNotification = atom.config.get('git-tools.blameCursorNotification')
+
+    @blameCursorNotification = atom.config.get('git-tools.blameCursorNotification')
+    
   dir: ->
     editor = atom.workspace.getActivePaneItem()
     if editor == undefined
@@ -38,8 +44,16 @@ module.exports = GitTools =
     if editor == undefined
       undefined
     else
-      editor?.getCursorScreenPosition().row + 1
-
+      line = editor.getCursorScreenPosition().row + 1
+      if editor.hasMultipleCursors() && @blameCursorNotification
+         atom.notifications.addInfo(
+            'Git Gui Blame',
+            {
+               detail: 'Position could not be resolved due multiple cursors.\nLine (used): ' + line
+               dismissable: true
+            }
+         )
+      line
 
   isUndefined: (dir, title) ->
     if dir == undefined
