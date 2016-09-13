@@ -64,29 +64,37 @@ module.exports = GitTools =
       true
     else
       false
+  
+  # resolves cli command (since windows needs another)
+  platform_cmd: ->
+    if process.platform == 'win32'
+      'pushd'
+    else
+      'cd'
 
   # commands
   git_k: ->
     dir = @dir()
     return if @isUndefined(dir, "Gitk")
-    exec 'cd ' + dir + ' && gitk'
+    exec @platform_cmd() + ' ' + dir + ' && gitk'
 
   git_k_cf: ->
     file = @file()
     return if @isUndefined(file, "Gitk Current File")
-    exec 'cd ' + @dir() + ' && gitk ' + file
+    exec @platform_cmd() + ' ' + @dir() + ' && gitk ' + file
 
   git_gui: ->
     dir = @dir()
     return if @isUndefined(dir, "Git Gui")
-    exec 'cd ' + dir + ' && git gui'
+    exec @platform_cmd() + ' ' + dir + ' && git gui'
 
   git_gui_blame: ->
     dir = @dir()
     file = @file()
     line = @line()
 
+    return if @isUndefined(dir,  "Git Gui Blame")
     return if @isUndefined(file, "Git Gui Blame")
     return if @isUndefined(line, "Git Gui Blame")
 
-    exec 'cd ' + dir + ' && git gui blame --line=' + line + ' ' + '""' + file + '""'
+    exec @platform_cmd() + ' "' + dir + '" && git gui blame --line=' + line + ' ' + ' "' + file + '"'
