@@ -24,7 +24,7 @@ module.exports = GitTools =
       @blameCursorNotification = atom.config.get('git-tools.blameCursorNotification')
 
     @blameCursorNotification = atom.config.get('git-tools.blameCursorNotification')
-    
+
   dir: ->
     editor = atom.workspace.getActivePaneItem()
     if editor == undefined
@@ -46,13 +46,13 @@ module.exports = GitTools =
     else
       line = editor.getCursorScreenPosition().row + 1
       if editor.hasMultipleCursors() && @blameCursorNotification
-         atom.notifications.addInfo(
-            'Git Gui Blame',
-            {
-               detail: 'Position could not be resolved due multiple cursors.\nLine (used): ' + line
-               dismissable: true
-            }
-         )
+        atom.notifications.addInfo(
+          'Git Gui Blame',
+          {
+            detail: 'Position could not be resolved due multiple cursors.\nLine (used): ' + line
+            dismissable: true
+          }
+        )
       line
 
   isUndefined: (dir, title) ->
@@ -64,7 +64,7 @@ module.exports = GitTools =
       true
     else
       false
-  
+
   # resolves cli command (since windows needs another)
   platform_cmd: ->
     if process.platform == 'win32'
