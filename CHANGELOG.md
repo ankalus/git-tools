@@ -1,3 +1,7 @@
+## 0.4.1 - Fix
+
+*   Fixed windows calls
+
 ## 0.4.0 - New feature
 
 *   Added: "Git Gui Blame"
