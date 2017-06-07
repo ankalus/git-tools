@@ -29,6 +29,12 @@
       "type": "boolean",
       "default": true,
       "order": 1
+    },
+    "gitkArgs": {
+      "title": "Gitk args",
+      "type": "string",
+      "default": "--all",
+      "order": 1
     }
   }
 }
