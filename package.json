@@ -1,7 +1,7 @@
 {
   "name": "git-tools",
   "main": "./lib/git-tools",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Opens Git Gui and gitk",
   "keywords": [
     "git",
